@@ -5,7 +5,7 @@ import ProductGrid from "../components/productCards/ProductGrid";
 const Home = () => {
   return (
     <div>
-      <div className="relative h-[600px] bg-white">
+      <div className="relative px-12 h-[600px] bg-white">
         {/* Decorative mandala pattern overlay */}
         <div
           className="absolute inset-0 opacity-5 pointer-events-none"
