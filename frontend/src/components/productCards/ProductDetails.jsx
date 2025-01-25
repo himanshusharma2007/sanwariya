@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Heart, Star, ShoppingCart, Check } from "lucide-react";
+import { Heart, Star, ShoppingCart } from "lucide-react";
 
 const ProductDetails = () => {
   const product = {
@@ -7,8 +7,8 @@ const ProductDetails = () => {
     description:
       "Ergonomic wireless mouse with adjustable DPI settings and a sleek design.",
     images: [
-      "https://example.com/images/mouse1.jpg",
-      "https://example.com/images/mouse2.png",
+      "https://i.pinimg.com/736x/2a/ee/5e/2aee5ee6d367852bf906a6b842b829bb.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT271HjdIV8YpongKLf1bKM3oobsf3sNKnU9ND2BWbOBcMGknTzFOB0tWnxb0OaHvDzlpQ&usqp=CAU",
     ],
     varieties: [
       {
@@ -55,13 +55,13 @@ const ProductDetails = () => {
   const currentVariety = product.varieties[selectedVariety];
 
   return (
-    <div className="bg-gray-50 min-h-screen flex items-center justify-center p-4">
-      <div className="bg-white shadow-2xl rounded-2xl w-full h-screen grid md:grid-cols-2 gap-8 p-8">
+    <div className="bg-white min-h-screen flex items-center justify-center p-4">
+      <div className="bg-orange-50 shadow-2xl rounded-2xl w-full h-screen grid md:grid-cols-2 gap-8 p-8">
         {/* Image Gallery */}
         <div className="space-y-4">
-          <div className="bg-gray-100 rounded-2xl p-4 flex items-center justify-center">
+          <div className="bg-orange-100 rounded-2xl p-4 flex items-center justify-center">
             <img
-              src={product.images[selectedImage]}
+              src={product.images[selectedImage] || "/placeholder.svg"}
               alt={product.title}
               className="max-h-96 w-auto object-contain"
             />
@@ -70,12 +70,12 @@ const ProductDetails = () => {
             {product.images.map((img, index) => (
               <img
                 key={index}
-                src={img}
+                src={img || "/placeholder.svg"}
                 alt={`Product view ${index + 1}`}
                 className={`h-16 w-16 rounded-lg object-cover cursor-pointer 
                   ${
                     selectedImage === index
-                      ? "border-2 border-blue-500"
+                      ? "border-2 border-[#E68A00]"
                       : "opacity-70"
                   }`}
                 onClick={() => setSelectedImage(index)}
@@ -91,7 +91,7 @@ const ProductDetails = () => {
               <h1 className="text-3xl font-bold text-gray-800">
                 {product.title}
               </h1>
-              <div className="flex items-center text-yellow-500">
+              <div className="flex items-center text-[#D4AF37]">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
@@ -120,7 +120,7 @@ const ProductDetails = () => {
                   className={`px-4 py-2 rounded-lg border 
                     ${
                       selectedVariety === index
-                        ? "bg-blue-500 text-white border-blue-600"
+                        ? "bg-[#E68A00] text-white border-[#E68A00]"
                         : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                     }`}
                   onClick={() => setSelectedVariety(index)}
@@ -134,12 +134,12 @@ const ProductDetails = () => {
           {/* Price and Stock */}
           <div className="flex justify-between items-center">
             <div>
-              <p className="text-xl font-bold text-blue-600">
+              <p className="text-xl font-bold text-[#C0392B]">
                 ${currentVariety.price.sellingPrice}
                 <span className="text-sm text-gray-500 line-through ml-2">
                   ${currentVariety.price.mrp}
                 </span>
-                <span className="text-sm text-green-600 ml-2">
+                <span className="text-sm text-[#D4AF37] ml-2">
                   {Math.round(
                     (1 -
                       currentVariety.price.sellingPrice /
@@ -172,7 +172,7 @@ const ProductDetails = () => {
 
           {/* Action Buttons */}
           <div className="flex space-x-4">
-            <button className="flex-1 bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 flex items-center justify-center">
+            <button className="flex-1 bg-[#E68A00] text-white py-3 rounded-lg hover:bg-[#C0392B] transition-colors duration-200 flex items-center justify-center">
               <ShoppingCart className="mr-2" /> Add to Cart
             </button>
             <button className="bg-gray-200 text-gray-700 p-3 rounded-lg hover:bg-gray-300">
