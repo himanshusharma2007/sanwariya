@@ -10,6 +10,10 @@ import Checkout from "./Screens/Checkout";
 import OrderConfirmation from "./Screens/OrderConfirmation";
 import AllOrders from "./Screens/AllOrders";
 import Profile from "./Screens/Profile";
+import Login from "./Screens/Login";
+import SignUp from "./Screens/SignUp";
+import Wishlist from "./Screens/Wishlist";
+import Notification from "./Screens/Notifications";
 
 function App() {
   return (
@@ -17,6 +21,8 @@ function App() {
     <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="contactUs" element={<ContactUs />} />
         <Route path="AboutUs" element={<AboutUs />} />
         <Route path="/cart" element={<Cart/>}/>
@@ -25,6 +31,8 @@ function App() {
         <Route path="orderConfirmation" element={<OrderConfirmation />} />
         <Route path="/allOrders" element={<AllOrders />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="notifications" element={<Notification />} />
       </Routes>
       {!window.location.pathname.includes('cart') && <Footer />}
     </BrowserRouter>
