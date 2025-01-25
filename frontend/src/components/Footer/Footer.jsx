@@ -78,7 +78,7 @@ const Footer = () => {
         <div className="border-t border-[#F8F5F0]/10">
           <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm opacity-80">
-              © 2025 Your Store. All rights reserved.
+              © 2025 Sanwariya Handicraft. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-sm hover:text-[#E68A00] transition-colors">Privacy Policy</a>
