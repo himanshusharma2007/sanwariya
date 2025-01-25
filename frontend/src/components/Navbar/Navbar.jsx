@@ -16,7 +16,6 @@ export default function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false)
   const [cartItemCount, setCartItemCount] = useState(2)
   const [searchQuery, setSearchQuery] = useState("")
-  const [notifications, setNotifications] = useState(3) // Example notification count
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -119,18 +118,7 @@ export default function Navbar() {
               </span>
             </button>
 
-            {/* Notifications */}
-            <button 
-              className="relative text-[#196F3D] hover:text-[#D4AF37] transition-colors"
-              onClick={() => navigate('/notifications')}
-            >
-              <Bell className="h-6 w-6" />
-              {notifications > 0 && (
-                <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#C0392B] text-xs text-white">
-                  {notifications}
-                </span>
-              )}
-            </button>
+            
 
             {/* User Menu */}
             <div className="relative">

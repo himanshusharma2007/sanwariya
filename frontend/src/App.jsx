@@ -13,7 +13,6 @@ import Profile from "./Screens/Profile";
 import Login from "./Screens/Login";
 import SignUp from "./Screens/SignUp";
 import Wishlist from "./Screens/Wishlist";
-import Notification from "./Screens/Notifications";
 import ProductDetails from "./components/productCards/ProductDetails";
 
 function App() {
@@ -34,7 +33,6 @@ function App() {
         <Route path="/allOrders" element={<AllOrders />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="notifications" element={<Notification />} />
       </Routes>
       {!window.location.pathname.includes("cart") && <Footer />}
     </BrowserRouter>
