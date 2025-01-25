@@ -1,5 +1,5 @@
-import React from 'react';
-import { Star, ShoppingCart, Heart, Shield, Award, Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { Star, ShoppingCart, Heart, Shield, Award, Check, Search } from 'lucide-react';
 
 const ProductCard = ({ product }) => {
   return (
@@ -81,7 +81,10 @@ const ProductCard = ({ product }) => {
   );
 };
 
-const ProductGrid = () => {
+const Products = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
   const products = [
     {
       name: "Sacred Panchmukhi Rudraksha Mala",
@@ -165,21 +168,62 @@ const ProductGrid = () => {
     }
   ];
 
+  const categories = ['All', 'Prayer Beads', 'Sacred Idols', 'Accessories', 'Incense', 'Jewelry'];
+
+  const filteredProducts = products.filter(product => 
+    (selectedCategory === 'All' || product.category === selectedCategory) &&
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="container mx-auto px-4 py-12 bg-gradient-to-t from-white to-gray-50">
-      <div className="text-center mb-10">
-        <h2 className="text-2xl font-serif text-[#6F4E37] mb-2">Sacred Collection</h2>
-        <p className="text-xs text-[#6F4E37]/70 max-w-xl mx-auto">
-          Curated with devotion, each piece carries divine energy and ancient wisdom
-        </p>
+    <div className="min-h-screen bg-gradient-to-t from-white to-gray-50">
+      {/* Header */}
+      
+
+      {/* Search and Filters */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+          {/* Search Bar */}
+          <div className="relative w-full md:w-1/3 mb-4 md:mb-0">
+            <input
+              type="text"
+              placeholder="Search products..."
+              className="w-full pl-10 pr-4 py-2 rounded-full border border-[#D4AF37]/30 focus:outline-none focus:border-[#D4AF37]"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#6F4E37]/50" size={18} />
+          </div>
+
+          {/* Category Filters */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`px-3 py-1 rounded-full text-sm ${
+                  selectedCategory === category
+                    ? 'bg-[#D4AF37] text-white'
+                    : 'bg-white text-[#6F4E37] border border-[#D4AF37]/30'
+                }`}
+                onClick={() => setSelectedCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        {products.map((product, index) => (
-          <ProductCard key={index} product={product} />
-        ))}
+
+      {/* Product Grid */}
+      <div className="container mx-auto px-4 pb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {filteredProducts.map((product, index) => (
+            <ProductCard key={index} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default ProductGrid;
+export default Products;

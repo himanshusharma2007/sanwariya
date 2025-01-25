@@ -1,6 +1,5 @@
-import React from "react";
 import { ChevronRight } from "lucide-react";
-import ProductGrid from "../components/productCards/ProductGrid";
+import ProductCard from "../components/productCards/ProductCard";
 
 const Home = () => {
   return (
@@ -75,7 +74,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <ProductGrid />
+      <ProductCard />
     </div>
   );
 };

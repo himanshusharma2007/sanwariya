@@ -1,11 +1,11 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Menu, X, Search, ShoppingCart, User, LogOut } from "lucide-react"
 import logo from "../../images/pnglogo.png"
 const navLinks = [
   { href: "/products", label: "Products" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" }, 
+  { href: "/AboutUs", label: "About" },
+  { href: "/contactUs", label: "Contact" }, 
 ] 
 
 export default function Navbar() {
@@ -13,6 +13,7 @@ export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [showUserMenu, setShowUserMenu] = useState(false)
 
+  const navigate = useNavigate()
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-[#6F4E37] bg-[#F8F5F0]">
       <div className="container mx-auto px-4">
@@ -52,7 +53,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            <button className="relative text-[#C0392B] hover:text-[#D4AF37] transition-colors">
+            <button className="relative text-[#C0392B] hover:text-[#D4AF37] transition-colors" onClick={()=>navigate('/cart')}>
               <ShoppingCart className="h-6 w-6" />
               <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#E68A00] text-xs text-white">
                 0
