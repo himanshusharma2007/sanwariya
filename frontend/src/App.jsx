@@ -6,6 +6,10 @@ import Cart from "./Screens/Cart";
 import ContactUs from "./Screens/ContactUs";
 import AboutUs from "./Screens/AboutUs";
 import Products from "./Screens/Products";
+import Checkout from "./Screens/Checkout";
+import OrderConfirmation from "./Screens/OrderConfirmation";
+import AllOrders from "./Screens/AllOrders";
+import Profile from "./Screens/Profile";
 
 function App() {
   return (
@@ -17,6 +21,10 @@ function App() {
         <Route path="AboutUs" element={<AboutUs />} />
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/products" element={<Products/>}/>
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="orderConfirmation" element={<OrderConfirmation />} />
+        <Route path="/allOrders" element={<AllOrders />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       {!window.location.pathname.includes('cart') && <Footer />}
     </BrowserRouter>

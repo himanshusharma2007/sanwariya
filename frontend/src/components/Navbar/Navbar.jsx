@@ -76,7 +76,7 @@ export default function Navbar() {
                       <Link to="/profile" className="block px-4 py-2 text-[#6F4E37] hover:bg-[#F8F5F0]">
                         Profile
                       </Link>
-                      <Link to="/orders" className="block px-4 py-2 text-[#6F4E37] hover:bg-[#F8F5F0]">
+                      <Link to="/allOrders" className="block px-4 py-2 text-[#6F4E37] hover:bg-[#F8F5F0]">
                         Orders
                       </Link>
                       <button
