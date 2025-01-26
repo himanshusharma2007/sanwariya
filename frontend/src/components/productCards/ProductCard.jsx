@@ -1,7 +1,7 @@
 import React from "react";
 import { Star, ShoppingCart, Heart, Shield, Award, Check } from "lucide-react";
 import { useNavigate } from "react-router";
-
+import p1 from "../../assets/Untitled-2.webp";
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   return (
@@ -14,9 +14,9 @@ const ProductCard = ({ product }) => {
       {/* Product Image Container */}
       <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-b from-[#F8F5F0] to-white p-4">
         <img
-          src="https://imgs.search.brave.com/MTgJ4KtZFJPAufJVbJnashoBo7-7FZutFuamR5cr3oI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cGFuZGl0LmNvbS9j/ZG4vc2hvcC9maWxl/cy9maXZlX211a2hp/X3J1ZHJha3NoYV9t/YWxhX21haW5fcHJv/ZHVjdF9pbWFnZV8y/MDQuanBnP3Y9MTcx/OTMxNTcxMSZ3aWR0/aD0xNTAw"
+          src={p1}
           alt={product.name}
-          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-102"
+          className="w-full h-full object-fit transition-transform duration-500 group-hover:scale-102"
         />
 
         {/* Premium Badge */}
