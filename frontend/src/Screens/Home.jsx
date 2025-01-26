@@ -4,6 +4,7 @@ import LatestArrivals from "./LatestArrivals";
 import FeaturedProducts from "./FeaturedProducts";
 import TestimonialSlider from "./TestimonialSlider";
 import FAQSection from "./FAQSection";
+import GalleryPage from "./GalleryPage";
 
 const Home = () => {
   return (
@@ -81,6 +82,7 @@ const Home = () => {
       <LatestArrivals />
       <FeaturedProducts />
       <TestimonialSlider />
+      {/* <GalleryPage /> */}
       <FAQSection />
     </div>
   );
