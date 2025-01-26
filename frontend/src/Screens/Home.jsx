@@ -1,5 +1,9 @@
 import { ChevronRight } from "lucide-react";
 import ProductCard from "../components/productCards/ProductCard";
+import LatestArrivals from "./LatestArrivals";
+import FeaturedProducts from "./FeaturedProducts";
+import TestimonialSlider from "./TestimonialSlider";
+import FAQSection from "./FAQSection";
 
 const Home = () => {
   return (
@@ -74,7 +78,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <ProductCard />
+      <LatestArrivals />
+      <FeaturedProducts />
+      <TestimonialSlider />
+      <FAQSection />
     </div>
   );
 };
