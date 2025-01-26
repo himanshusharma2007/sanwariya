@@ -14,6 +14,7 @@ import Login from "./Screens/Login";
 import SignUp from "./Screens/SignUp";
 import Wishlist from "./Screens/Wishlist";
 import ProductDetails from "./components/productCards/ProductDetails";
+import HeroCarousel from "./Screens/HeroCarousel";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/allOrders" element={<AllOrders />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/corosal" element={<HeroCarousel />} />
       </Routes>
       {!window.location.pathname.includes("cart") && <Footer />}
     </BrowserRouter>

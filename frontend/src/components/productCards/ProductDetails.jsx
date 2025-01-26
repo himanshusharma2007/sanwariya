@@ -3,51 +3,52 @@ import { Heart, Star, ShoppingCart, Check, Expand } from "lucide-react";
 
 const ProductDetails = () => {
   const product = {
-    title: "Wireless Mouse",
+    title: "Tulsi Bead Mala",
     description:
-      "Ergonomic wireless mouse with adjustable DPI settings and a sleek design.",
+      "Sacred Tulsi Bead Mala, handcrafted for meditation, prayer, and spiritual well-being.",
     images: [
-      "https://i.pinimg.com/736x/2a/ee/5e/2aee5ee6d367852bf906a6b842b829bb.jpg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT271HjdIV8YpongKLf1bKM3oobsf3sNKnU9ND2BWbOBcMGknTzFOB0tWnxb0OaHvDzlpQ&usqp=CAU",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmXAXbExc7snliKpmLz_Qc6mfNzj1IcA9yOw&usqp=CAU"
+      "https://imgs.search.brave.com/ldJP7FIklXJ7uBpENJmn6G1R8pZTGdLmRTs9EoCS4bg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5na2V5LmNvbS9w/bmcvZGV0YWlsLzI2/MS0yNjEwMzUyX3R1/bHNpLW1hbGEtaG9s/eS1iYXNpbC5wbmc",
+      "https://imgs.search.brave.com/84GKT058tbXQgcxeORgJQiFh_-gqmvC_BpxiagmcHEw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDF5MWI5Y0lnS0wu/anBn",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0QFPgZMC3jeOb2Pgdd4yRLElEIG0HZiAuEw&usqp=CAU",
     ],
     varieties: [
       {
-        color: "Black",
-        size: "Medium",
-        weight: 200,
-        stock: 50,
+        color: "Natural Wood",
+        size: "Small Beads",
+        weight: 80,
+        stock: 20,
         price: {
-          mrp: 30.99,
-          sellingPrice: 25.99,
+          mrp: 15.99,
+          sellingPrice: 12.99,
         },
       },
       {
-        color: "White",
-        size: "Small",
-        weight: 180,
-        stock: 100,
+        color: "Natural Wood",
+        size: "Large Beads",
+        weight: 150,
+        stock: 35,
         price: {
-          mrp: 28.99,
-          sellingPrice: 22.99,
+          mrp: 19.99,
+          sellingPrice: 16.99,
         },
       },
     ],
     reviews: [
       {
         rating: 5,
-        description: "Excellent product! Works perfectly.",
+        description: "Beautifully crafted and spiritually uplifting. Love it!",
         images: [],
       },
       {
         rating: 4,
-        description: "Great quality but a bit pricey.",
+        description: "Authentic Tulsi beads, but the string could be stronger.",
         images: [],
       },
     ],
-    label: "Best Seller",
-    tags: ["electronics", "mouse", "wireless"],
+    label: "Spiritual Favorite",
+    tags: ["spiritual", "tulsi mala", "prayer beads"],
   };
+  
 
   const [selectedVariety, setSelectedVariety] = useState(0);
   const [selectedImage, setSelectedImage] = useState(0);
@@ -57,29 +58,23 @@ const ProductDetails = () => {
   const currentVariety = product.varieties[selectedVariety];
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen flex items-center justify-center p-4">
-      <div className="bg-white shadow-2xl rounded-3xl w-full max-w-6xl grid md:grid-cols-2 gap-12 p-8 relative overflow-hidden">
-        {/* Best Seller Label */}
-        
-
-        {/* Image Gallery */}
-        <div className="space-y-6">
-          {/* Main Image Container */}
-          <div className="relative group">
-            <div className="bg-gray-100 rounded-2xl p-6 flex items-center justify-center relative overflow-hidden">
-              <img
-                src={product.images[selectedImage]}
-                alt={`${product.title} - View ${selectedImage + 1}`}
-                className="max-h-96 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
-              />
-              <button className="absolute top-4 right-4 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Expand className="w-5 h-5 text-gray-600" />
-              </button>
-            </div>
+    <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen flex flex-col p-4">
+      {/* Image Gallery */}
+      <div className="space-y-6 md:flex md:space-y-0 md:space-x-12 w-full">
+        {/* Main Image Container */}
+        <div className="flex-1 relative group">
+          <div className="bg-gray-100 rounded-2xl p-6 flex items-center justify-center relative overflow-hidden">
+            <img
+              src={product.images[selectedImage]}
+              alt={`${product.title} - View ${selectedImage + 1}`}
+              className="max-h-96 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+            />
+            <button className="absolute top-4 right-4 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <Expand className="w-5 h-5 text-gray-600" />
+            </button>
           </div>
-
           {/* Thumbnail Gallery */}
-          <div className="flex space-x-3 justify-center">
+          <div className="flex space-x-3 justify-center mt-4">
             {product.images.map((img, index) => (
               <button
                 key={index}
@@ -101,9 +96,9 @@ const ProductDetails = () => {
             ))}
           </div>
         </div>
-
+  
         {/* Product Details */}
-        <div className="space-y-6">
+        <div className="flex-1 space-y-6">
           <div>
             <div className="flex justify-between items-start">
               <div>
@@ -141,7 +136,7 @@ const ProductDetails = () => {
               {product.description}
             </p>
           </div>
-
+  
           {/* Variety Selection */}
           <div className="space-y-3">
             <h3 className="font-semibold text-gray-700">Choose Variant</h3>
@@ -163,7 +158,7 @@ const ProductDetails = () => {
               ))}
             </div>
           </div>
-
+  
           {/* Price and Stock */}
           <div className="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
             <div>
@@ -177,7 +172,7 @@ const ProductDetails = () => {
                     (1 -
                       currentVariety.price.sellingPrice /
                         currentVariety.price.mrp) *
-                      100
+                    100
                   )}% off
                 </span>
               </p>
@@ -201,7 +196,7 @@ const ProductDetails = () => {
               </button>
             </div>
           </div>
-
+  
           {/* Action Buttons */}
           <div className="grid grid-cols-3 gap-4">
             <button className="col-span-2 bg-[#E68A00] text-white py-3 rounded-lg hover:bg-[#C0392B] transition-colors duration-300 flex items-center justify-center space-x-2 group">
@@ -219,7 +214,7 @@ const ProductDetails = () => {
               <Heart className={isWishlisted ? "fill-current" : ""} />
             </button>
           </div>
-
+  
           {/* Tags */}
           <div className="flex space-x-2">
             {product.tags.map((tag, index) => (
@@ -235,6 +230,7 @@ const ProductDetails = () => {
       </div>
     </div>
   );
+  
 };
 
 export default ProductDetails;
